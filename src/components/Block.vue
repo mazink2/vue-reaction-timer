@@ -2,7 +2,6 @@
   <div class="block" v-if="showBlock" @click="stopTimer">
     Click Me
   </div>
-  <h2>{{ reactionTime }}</h2>
 </template>
 
 <script>
@@ -29,6 +28,7 @@ export default {
     },
     stopTimer() {
       clearInterval(this.timer)
+      this.$emit('end', this.reactionTime)
     }
   }
 }
@@ -38,7 +38,7 @@ export default {
   .block {
     width: 400px;
     border-radius: 20px;
-    background:  #0faf87;;
+    background:  #0faf87;
     color: white;
     text-align: center;
     padding: 100px 0;
